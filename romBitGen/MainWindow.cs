@@ -42,5 +42,14 @@ namespace romBitGen
 
             }
         }
+
+        private void btn_gen_Click(object sender, EventArgs e)
+        {
+            if (!Directory.Exists(l_source_file_name.Text))
+            {
+                MessageBox.Show("没有选择源文件，请先点击打开按钮选择源文件");
+                return;
+            }
+        }
     }
 }

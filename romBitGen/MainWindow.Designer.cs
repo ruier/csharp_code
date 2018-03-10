@@ -31,6 +31,8 @@
             this.btn_source_file = new System.Windows.Forms.Button();
             this.l_source_file_name = new System.Windows.Forms.Label();
             this.cb_type = new System.Windows.Forms.ComboBox();
+            this.btn_ungen = new System.Windows.Forms.Button();
+            this.btn_gen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_source_file
@@ -65,11 +67,32 @@
             this.cb_type.Size = new System.Drawing.Size(75, 20);
             this.cb_type.TabIndex = 4;
             // 
+            // btn_ungen
+            // 
+            this.btn_ungen.Location = new System.Drawing.Point(383, 51);
+            this.btn_ungen.Name = "btn_ungen";
+            this.btn_ungen.Size = new System.Drawing.Size(75, 23);
+            this.btn_ungen.TabIndex = 5;
+            this.btn_ungen.Text = "解码";
+            this.btn_ungen.UseVisualStyleBackColor = true;
+            // 
+            // btn_gen
+            // 
+            this.btn_gen.Location = new System.Drawing.Point(267, 51);
+            this.btn_gen.Name = "btn_gen";
+            this.btn_gen.Size = new System.Drawing.Size(75, 23);
+            this.btn_gen.TabIndex = 6;
+            this.btn_gen.Text = "生成";
+            this.btn_gen.UseVisualStyleBackColor = true;
+            this.btn_gen.Click += new System.EventHandler(this.btn_gen_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 138);
+            this.Controls.Add(this.btn_gen);
+            this.Controls.Add(this.btn_ungen);
             this.Controls.Add(this.cb_type);
             this.Controls.Add(this.l_source_file_name);
             this.Controls.Add(this.btn_source_file);
@@ -87,6 +110,8 @@
         private System.Windows.Forms.Button btn_source_file;
         private System.Windows.Forms.Label l_source_file_name;
         private System.Windows.Forms.ComboBox cb_type;
+        private System.Windows.Forms.Button btn_ungen;
+        private System.Windows.Forms.Button btn_gen;
     }
 }
 
