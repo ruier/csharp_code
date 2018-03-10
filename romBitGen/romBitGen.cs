@@ -162,6 +162,12 @@ class winDirCtr
 
     public static void bz2compress(String source, String target)
     {
+        if (!File.Exists("minibz2.exe"))
+        {
+            MessageBox.Show("没有找到 minibz2.exe，请检查文件夹完整性");
+            Application.Exit();
+        }
+
         Process bz2Process = new Process();
 
         try
