@@ -166,7 +166,7 @@ class winDirCtr
 
         try
         {
-            bz2Process.StartInfo.UseShellExecute = true;
+            bz2Process.StartInfo.UseShellExecute = false;
             bz2Process.StartInfo.FileName = "minibz2.exe";
             bz2Process.StartInfo.CreateNoWindow = true;
             bz2Process.StartInfo.Arguments = " -1 " + source + " " + target;
