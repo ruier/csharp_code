@@ -27,7 +27,7 @@ namespace romBitGen
 
         public void setTargetFile(String type, decimal main, decimal sub, decimal debug)
         {
-            target_file = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "gen"), type + main + "-" + sub); ;
+            target_file = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "gen"), type + main + "-" + sub + "#" + debug); ;
         }
 
         public void setZipFile(String t)

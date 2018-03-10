@@ -57,7 +57,7 @@ namespace romBitGen
             }
 
             rom.bitZip(l_source_file_name.Text);
-            rom.bitGen(cb_type.Text, 0, 0, 0);
+            rom.bitGen(cb_type.Text, nud_main.Value, nud_sub.Value, nud_debug.Value);
         }
     }
 }
