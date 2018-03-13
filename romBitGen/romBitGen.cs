@@ -28,18 +28,23 @@ namespace romBitGen
 
         public void setTargetFile(String type, decimal main, decimal sub, decimal debug)
         {
-            target_file = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "gen"), type + main + "-" + sub + "#" + debug); ;
+            target_file = Path.Combine(Path.Combine(Application.StartupPath, "gen"), type + main + "-" + sub + "#" + debug);
+            MessageBox.Show("target" + target_file);
         }
 
         public void setZipFile(String t)
         {
-            zip_file = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "gen"), t + ".zip");
+            String zip_path = Path.Combine(Application.StartupPath, "gen");
+            String zip_name = Path.GetFileNameWithoutExtension(t) + ".zip";
+            zip_file = Path.Combine(zip_path, zip_name);
+            MessageBox.Show(zip_file);
+      
         }
 
         public void initGen(String fn)
         {
             String targetDir;
-            targetDir = Path.Combine(Directory.GetCurrentDirectory(), "gen");
+            targetDir = Path.Combine(Application.StartupPath, "gen");
 
             if (!Directory.Exists(targetDir))
                 Directory.CreateDirectory(targetDir);
@@ -143,18 +148,20 @@ class winDirCtr
     {
         String fn = "";
         OpenFileDialog dlg = new OpenFileDialog();
-        DialogResult res = dlg.ShowDialog();
+        dlg.InitialDirectory = Application.StartupPath;
+        dlg.RestoreDirectory = true;
 
-        if (res == DialogResult.OK)
+        if (dlg.ShowDialog() == DialogResult.OK)
         {
             if (!string.IsNullOrEmpty(dlg.FileName))
             {
-                fn = dlg.FileName; ;
+                fn = dlg.FileName;
+                Directory.SetCurrentDirectory(Application.StartupPath);
             }
         }
         else
             fn = "";
-
+        
         return fn;
     }
 
