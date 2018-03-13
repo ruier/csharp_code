@@ -29,16 +29,13 @@ namespace romBitGen
         public void setTargetFile(String type, decimal main, decimal sub, decimal debug)
         {
             target_file = Path.Combine(Path.Combine(Application.StartupPath, "gen"), type + main + "-" + sub + "#" + debug);
-            MessageBox.Show("target" + target_file);
         }
 
         public void setZipFile(String t)
         {
             String zip_path = Path.Combine(Application.StartupPath, "gen");
             String zip_name = Path.GetFileNameWithoutExtension(t) + ".zip";
-            zip_file = Path.Combine(zip_path, zip_name);
-            MessageBox.Show(zip_file);
-      
+            zip_file = Path.Combine(zip_path, zip_name); 
         }
 
         public void initGen(String fn)
