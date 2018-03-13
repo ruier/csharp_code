@@ -80,6 +80,11 @@ namespace romBitGen
 
             int length = streamRead.Read(data, 0, data.Length);
 
+            if (zip_file_len < 0x490)
+            {
+                MessageBox.Show("文件太小，请检查文件正确性");
+                return;
+            }
 
             for (int i = 0; i < 0x490; i++)
                 streamWrite.WriteByte(Convert.ToByte((Convert.ToChar(data[i]) + 0x88) % 0x100));
@@ -167,7 +172,7 @@ class winDirCtr
         if (!File.Exists("minibz2.exe"))
         {
             MessageBox.Show("没有找到 minibz2.exe，请检查文件夹完整性");
-            Application.Exit();
+            return;
         }
 
         Process bz2Process = new Process();
