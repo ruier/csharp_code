@@ -84,6 +84,7 @@
             this.btn_ungen.TabIndex = 5;
             this.btn_ungen.Text = "解码";
             this.btn_ungen.UseVisualStyleBackColor = true;
+            this.btn_ungen.Click += new System.EventHandler(this.btn_ungen_Click);
             // 
             // btn_gen
             // 

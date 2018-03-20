@@ -49,11 +49,11 @@ namespace romBitGen
             setSourceFile(fn);
         }
 
-        public void bitZip(String s)
+        public bool bitZip(String s)
         {
             setZipFile(s);
             //winDirCtr.bz2compress(s, zip_file);
-            winDirCtr.BZipFile(s, zip_file);
+            return winDirCtr.BZipFile(s, zip_file);
         }
 
         public void bitGen(String type_ver, decimal main_ver, decimal sub_ver, decimal debug_ver)
@@ -202,20 +202,21 @@ class winDirCtr
                       //为源文件创建文件流实例，作为压缩方法的输入流参数
         FileStream srcFile = File.OpenRead(sourcefilename);
         //为压缩文件创建文件流实例，作为压缩方法的输出流参数
-        FileStream zipFile = File.Open(zipfilename, FileMode.Create);
+        FileStream zipFile;
         try
         {
+            zipFile = File.Open(zipfilename, FileMode.Create);
             //以4096字节作为一个块的方式压缩文件
             BZip2.Compress(srcFile, zipFile, true, 1);
             blResult = true;
+            srcFile.Close();//关闭源文件流
+            zipFile.Close();//关闭压缩文件流
         }
         catch (Exception ee)
         {
-            Console.WriteLine(ee.Message);
+            MessageBox.Show("创建：" + zipfilename + "失败");
             blResult = false;
         }
-        srcFile.Close();//关闭源文件流
-        zipFile.Close();//关闭压缩文件流
         return blResult;
     }
 }

@@ -56,8 +56,15 @@ namespace romBitGen
                 return;
             }
 
-            rom.bitZip(l_source_file_name.Text);
-            rom.bitGen(cb_type.Text, nud_main.Value, nud_sub.Value, nud_debug.Value);
+            if (rom.bitZip(l_source_file_name.Text))
+                rom.bitGen(cb_type.Text, nud_main.Value, nud_sub.Value, nud_debug.Value);
+            else
+                MessageBox.Show("创建失败，请重试。");
+        }
+
+        private void btn_ungen_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("暂不支持");
         }
     }
 }
